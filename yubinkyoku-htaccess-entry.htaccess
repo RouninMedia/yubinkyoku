@@ -1,0 +1,9 @@
+# REWRITES
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# ASHIVA MODULES
+RewriteRule ^(\.assets/modules/modules)\.js $1.php
+RewriteRule ^\.assets/design/scripts/(.+)/scripts.js .assets/design/scripts/scripts.js
+
+</IfModule>
