@@ -2,6 +2,8 @@
  // INITIALISE MODULES //
 //********************//
 
+import {pageModules} from '/.assets/modules/modules.js';
+
 const initialiseModules = (pageModules) => { 
 
   for (let module in pageModules) {
