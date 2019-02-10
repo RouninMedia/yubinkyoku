@@ -21,9 +21,6 @@ $ExpStr = "Expires: ".gmdate("D, d M Y H:i:s", time() + $offset)." GMT";
 header($ExpStr);
 
 
-// TO CONSIDER:
-// 1) How does browser caching / service worker caching work with query strings?
-
 
   //===============//
  // GET PAGE DATA //
