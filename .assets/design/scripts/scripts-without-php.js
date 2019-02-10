@@ -1,19 +1,19 @@
 "use strict";
 
 const pageModules = {};
-const myModules = ['logo', 'searchForm'];
+const moduleList = ['logo', 'searchForm'];
 
 
-for (let i = 0; i < myModules.length; i++) {
+for (let i = 0; i < moduleList.length; i++) {
 
-  import('/.assets/modules/' + myModules[i].toLowerCase() + '/design/scripts/' + myModules[i].toLowerCase() + '.js')
+  import('/.assets/modules/' + moduleList[i].toLowerCase() + '/design/scripts/' + moduleList[i].toLowerCase() + '.js')
 
-  .then(myModule => {
+  .then(currentModule => {
 
-    pageModules[myModules[i]] = myModule;
-    pageModules[myModules[i]] = pageModules[myModules[i]][myModules[i] + 'Module'];
+    pageModules[moduleList[i]] = currentModule;
+    pageModules[moduleList[i]] = pageModules[moduleList[i]][moduleList[i] + 'Module'];
 
-    let initial = pageModules[myModules[i]][Symbol.for(myModules[i] + '::initialise')];
+    let initial = pageModules[moduleList[i]][Symbol.for(moduleList[i] + '::initialise')];
 
     for (let initialComponent in initial) {
 
@@ -29,27 +29,3 @@ for (let i = 0; i < myModules.length; i++) {
   });
 
 }
-
-
-
-  //********************//
- // INITIALISE MODULES //
-//********************//
-
-import {pageModules} from '/.assets/modules/modules.js';
-
-const initialiseModules = (pageModules) => {
-
-  for (let module in pageModules) {
-
-    let initial = pageModules[module][Symbol.for(module + '::initialise')];
-
-    for (let initialComponent in initial) {
-
-      initial[initialComponent]();
-    }
-  }
-}
-
-
-initialiseModules(pageModules);
